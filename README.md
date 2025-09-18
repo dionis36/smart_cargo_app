@@ -39,17 +39,18 @@ Smart Cargo is a delivery service mobile application that connects retailers and
 
 ## Screenshots
 
-*  — Home / Dashboard
+*  — Home
+*  
 ![WhatsApp Image 2025-08-27 at 00 19 56_fcd25ef0](https://github.com/user-attachments/assets/ff8d09ca-0c93-4f27-8535-8be945888fbc)
 
 * Request flow
+* 
 ![WhatsApp Image 2025-09-10 at 11 02 43_2b9fbde8](https://github.com/user-attachments/assets/2261f393-2351-4c16-89b2-61989df7e0c3)
-
+*
 ![WhatsApp Image 2025-09-10 at 11 02 43_f2acf7e8](https://github.com/user-attachments/assets/5c27379a-70d5-40e1-aa6d-d86a33b3df19)
 
-
-  
 * Account & Settings
+* 
 ![WhatsApp Image 2025-08-27 at 00 19 57_decd225c](https://github.com/user-attachments/assets/f698e3fa-5c60-45a0-9236-490e282eed94)
 
 
