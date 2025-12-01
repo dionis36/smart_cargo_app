@@ -1,186 +1,157 @@
 # Smart Cargo Mobile App
 
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=for-the-badge)
+
+> [!IMPORTANT]
+> **App Status**: The Smart Cargo app is currently in development and has not yet been deployed to public app stores.
+
 Smart Cargo is a delivery service mobile application that connects retailers and individual users with drivers to provide fast, reliable, and cost-efficient delivery of goods and parcels. The app targets common logistics problems such as high delivery costs, long delays, and unreliable service.
 
 ---
 
-## Table of contents
+## Table of Contents
 
-* [Features](#features)
-* [Screenshots](#screenshots)
-* [Technology Stack](#technology-stack)
-* [Getting Started](#getting-started)
-
-  * [Prerequisites](#prerequisites)
-  * [Clone & Install](#clone--install)
-  * [Firebase & Environment setup](#firebase--environment-setup)
-  * [Run the app](#run-the-app)
-* [Request Flow & Pricing Algorithm](#request-flow--pricing-algorithm)
-* [Multilingual Support](#multilingual-support)
-* [User Accounts & Terms](#user-accounts--terms)
-* [Contributing](#contributing)
-* [Team](#team)
-* [License](#license)
-* [Contact](#contact)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technology Stack](#technology-stack)
+- [Getting Started](#getting-started)
+- [Request Flow & Pricing](#request-flow--pricing-algorithm)
+- [Multilingual Support](#multilingual-support)
+- [User Accounts & Terms](#user-accounts--terms)
+- [Contributing](#contributing)
+- [Team](#team)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
 ## Features
 
-* **Multilingual Support** — Language preference available for **Swahili** and **English**, implemented app-wide.
-* **Real-Time Tracking** — Track deliveries using a unique order number (provided on confirmation).
-* **Delivery Request Flow** — Multi-step flow to request deliveries:
-
-  * Specify pickup and destination locations.
-  * Describe parcel by category, fragility, size, weight, and value.
-  * Select transport option — calculated by an internal pricing algorithm that considers weight, size, and distance.
-* **Transport Selection & Pricing** — Automatic recommendations and price calculation based on parcel attributes and distance.
-* **User Account & Settings** — Profile management and integrated **Terms & Conditions** (generated with Termly.io).
+- **Multilingual Support**: Language preference available for **Swahili** and **English**, implemented app-wide.
+- **Real-Time Tracking**: Track deliveries using a unique order number.
+- **Delivery Request Flow**:
+  - Specify pickup and destination locations.
+  - Describe parcel by category, fragility, size, weight, and value.
+  - Select transport option (Bike, Motorbike, Car, Van).
+- **Smart Pricing**: Automatic recommendations and price calculation based on parcel attributes and distance.
+- **User Account**: Profile management and integrated Terms & Conditions.
 
 ## Screenshots
 
-*  — Home
-  
-![WhatsApp Image 2025-08-27 at 00 19 56_fcd25ef0](https://github.com/user-attachments/assets/ff8d09ca-0c93-4f27-8535-8be945888fbc)
-
-* Request flow
-  
-![WhatsApp Image 2025-09-10 at 11 02 43_2b9fbde8](https://github.com/user-attachments/assets/2261f393-2351-4c16-89b2-61989df7e0c3)
-*
-![WhatsApp Image 2025-09-10 at 11 02 43_f2acf7e8](https://github.com/user-attachments/assets/5c27379a-70d5-40e1-aa6d-d86a33b3df19)
-
-* Account & Settings
-  
-![WhatsApp Image 2025-08-27 at 00 19 57_decd225c](https://github.com/user-attachments/assets/f698e3fa-5c60-45a0-9236-490e282eed94)
-
-
+| Home | Request Flow |
+|:---:|:---:|
+| ![Home Screen](https://github.com/user-attachments/assets/ff8d09ca-0c93-4f27-8535-8be945888fbc) | ![Request Flow 1](https://github.com/user-attachments/assets/2261f393-2351-4c16-89b2-61989df7e0c3) |
+| **Request Flow (Details)** | **Account & Settings** |
+| ![Request Flow 2](https://github.com/user-attachments/assets/5c27379a-70d5-40e1-aa6d-d86a33b3df19) | ![Settings](https://github.com/user-attachments/assets/f698e3fa-5c60-45a0-9236-490e282eed94) |
 
 ## Technology Stack
 
-* **Framework:** Flutter (Dart)
-* **Backend & Services:** Django, ChatGPT (for customer support / prompts), Lovable.ai (design/marketing helpers)
-* **Maps / Location:** OpenStreetMap API (for address input and geocoding)
-* **CI / CD:** (TBD — e.g. GitHub Actions / Codemagic)
+| Category | Technology | Description |
+|----------|------------|-------------|
+| **Framework** | Flutter (Dart) | Cross-platform mobile development |
+| **Backend** | Django | Backend services and API |
+| **AI Services** | ChatGPT | Customer support prompts |
+| **Design** | Lovable.ai | Design and marketing helpers |
+| **Maps** | OpenStreetMap API | Address input and geocoding |
+| **CI/CD** | TBD | GitHub Actions / Codemagic (Planned) |
 
 ## Getting Started
 
 ### Prerequisites
 
-* Flutter SDK (stable channel) installed — follow Flutter docs for platform setup.
-* VS Code / Android Studio with Flutter extensions (recommended).
-* Android or iOS emulator, or a physical device.
+- **Flutter SDK** (stable channel)
+- **VS Code** or **Android Studio** with Flutter extensions
+- Android/iOS Emulator or Physical Device
 
-### Clone & Install
+### Installation
 
-```bash
-# clone the repo
-git clone https://github.com/your-username/smart-cargo-app.git
-cd smart-cargo-app
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/dionis36/smart-cargo-app.git
+   cd smart-cargo-app
+   ```
 
-# install dependencies
-flutter pub get
-```
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
 
-### Firebase & Environment setup
+### Configuration
 
-This app expects a Firebase project for authentication, Firestore, Cloud Functions (optional) and storage.
+1. **Firebase Setup**:
+   - Create a Firebase project.
+   - Add Android (`google-services.json`) to `android/app/`.
+   - Add iOS (`GoogleService-Info.plist`) to `ios/Runner/`.
 
-1. Create a Firebase project at the Firebase console.
-2. Add Android and/or iOS app in Firebase. Download `google-services.json` (Android) and/or `GoogleService-Info.plist` (iOS) and place them in the respective platform folders: `android/app/` and `ios/Runner/`.
-3. In Firestore, configure the following collections (suggested):
+2. **Environment Variables**:
+   Create a `.env` file or use `--dart-define`:
+   ```env
+   OPENSTREETMAP_USER_AGENT=SmartCargoApp/1.0
+   TERMS_URL=https://your-termly-url
+   ```
 
-   * `users` — user profiles and preferences
-   * `orders` — delivery requests and status updates
-   * `drivers` — driver profiles and availability
-4. Add required API keys and config variables to `.env` or use `--dart-define`.
-
-**Example `.env` keys** (or use your preferred approach — `flutter_dotenv`,  `--dart-define`):
-
-```
-OPENSTREETMAP_USER_AGENT=SmartCargoApp/1.0
-TERMS_URL=https://your-termly-url
-```
-
-> Security note: Do **not** commit secrets to version control. Use environment variables or secret manager.
-
-### Run the app
+### Running the App
 
 ```bash
-# run on connected device or emulator
+# Run on connected device
 flutter run
 
-# or build for release
+# Build for release
 flutter build apk --release
 ```
 
 ## Request Flow & Pricing Algorithm
 
-Request flow summary (user-facing):
+### User Flow
+1. **Pickup & Destination**: Select locations via map or address search.
+2. **Parcel Details**: Input category, fragility, dimensions, weight, and value.
+3. **Transport Selection**: App suggests vehicle type (Bike, Motorbike, Car, Van).
+4. **Confirmation**: Review estimated price and confirm.
 
-1. User chooses **Pickup** location (map or typed address).
-2. User chooses **Destination** location.
-3. User selects parcel attributes:
-
-   * Category (documents, food, clothing, electronics, etc.)
-   * Fragility (fragile / not fragile)
-   * Size / dimensions
-   * Weight
-   * Declared value
-4. App suggests transport options (bike, motorbike, car, van) and an estimated price based on the algorithm.
-
-**Pricing algorithm (high-level):**
-
-* Base price by transport type (e.g., bike < motorbike < car < van).
-* Distance factor: price ∝ distance.
-* Weight/volume multiplier: heavier/larger items increase cost.
-* Fragility / handling surcharge if `fragile == true`.
-* Insurance fee for high-value items (optional, percentage-based).
+### Pricing Logic
+- **Base Price**: Varies by transport type.
+- **Distance**: Price increases with distance.
+- **Multipliers**: Weight, volume, and fragility add surcharges.
+- **Insurance**: Optional percentage fee for high-value items.
 
 ## Multilingual Support
 
-* The app contains a language preference which toggles between English and Swahili.
-* Strings are kept in localized resource files (e.g., `lib/l10n/` or use `easy_localization` / `intl`).
+- Toggles between **English** and **Swahili**.
+- Strings managed via localized resource files.
 
 ## User Accounts & Terms
 
-* Users can create an account using Firebase Authentication (email/phone).
-* Terms & Conditions are integrated and loaded from the Termly.io link (or local copy for offline viewing).
+- **Authentication**: Firebase Auth (Email/Phone).
+- **Terms**: Integrated via Termly.io.
 
 ## Contributing
 
 We welcome contributions!
 
 1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature/your-feature`.
+2. Create a feature branch: `git checkout -b feature/amazing-feature`.
 3. Commit changes and open a Pull Request.
-
-Please include:
-
-* Clear PR description
-* Screenshots for UI changes
-* Tests for logic-heavy changes
 
 ## Team
 
-* **George Rashid** — Product Manager
-* **Alen Alen** — UX/UI Designer
-* **Nobert John** — Backend Engineer (Firebase)
-* **Dionis Nasuwa** — Lead Flutter Developer
-* **Riffat Ali** — QA & DevOps
-
+| Name | Role |
+|------|------|
+| **George Rashid** | Product Manager |
+| **Alen Alen** | UX/UI Designer |
+| **Nobert John** | Backend Engineer |
+| **Dionis Nasuwa** | Lead Flutter Developer |
+| **Riffat Ali** | QA & DevOps |
 
 ## License
 
-License: **To be determined**. Add a `LICENSE` file at the repository root when you decide. A common choice is the MIT License — if you want, I can add an MIT license template.
-
-## App Status
-
-> The Smart Cargo app is currently in development and has not yet been deployed to public app stores.
+**TBD**. A `LICENSE` file will be added soon.
 
 ## Contact
 
-For questions or collaboration, open an issue or reach out to the project owner on GitHub: `https://github.com/dionis36`.
+For questions or collaboration, reach out to the project owner:
+[GitHub Profile](https://github.com/dionis36)
 
 ---
-
 *Last updated: 18/09/2025*
